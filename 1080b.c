@@ -3,9 +3,9 @@ Disciplina  : Algortimo e Estrutura de Dados 2026S1
 Nome        : Gabriel Isoton Ferreira
 Linguagem   : C
 Problema    : https://judge.beecrowd.com/pt/problems/view/1080
-Data        : 21/08/2026
+Data        : 26/08/2026
 Objetivo    : Determinar o maior número lido
-Dificuldade : Saber que precisava colocar um \n no final da saida, para o Beecrowd aceitar minha resposta
+Dificuldade : Nenhuma
 Uso de IA   : Não
 -------------------------------------------------------------------------- */
 

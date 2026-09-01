@@ -3,10 +3,10 @@ Disciplina  : Algortimo e Estrutura de Dados 2026S1
 Nome        : Gabriel Isoton Ferreira
 Linguagem   : C
 Problema    : https://judge.beecrowd.com/pt/problems/view/1080
-Data        : 21/08/2026
+Data        : 26/08/2026
 Objetivo    : Verificar quais configurações de jogo (sudoku) são válidas
-Dificuldade : Como ler os blocos dentro de cada jogo
-Uso de IA   : Debuggar o código
+Dificuldade : Nenhuma
+Uso de IA   : Não
 -------------------------------------------------------------------------- */
 
 #include <stdio.h>
