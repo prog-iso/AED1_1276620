@@ -12,43 +12,54 @@ Uso de IA   :
 #include <iostream>
 using namespace std;
 
-//We'll use the three's structure
-//First we'll construct the three, using the inputs and, then, output the postfix line
-struct branch
-{
-    char let; // The value
-
-    //The next elements, under is the left one and over is the right one
-    branch *under, *over;
-
-    //This function associates a new value in the branch, if over == 1 the new element's put in over position 
-    void put(char let, bool over = 1);
-};
+void posfix(char *infix, char *prefix, int size);
 
 int main()
 {
+    //Reading how many cases there'll be
     int quant;
-    cin >> quant;
 
-    for(; quant != 0; quant--)
+    for(cin >> quant; quant != 0; quant--)
     {
-        //Understanding the size of the expression in prefix and in infix style and saving them
+        //Defining the size of the three
         int size;
         cin >> size;
-        char *prefix = new char[size];
-        char *infix = new char[size];
 
-        //Preparing the three
-        branch root;
+        //Creating the strings, without using the string class
+        char* prefix = new char[size];
+        char* infix = new char[size];
+
+        cin.ignore();
+        cin.read(prefix, size);
+        cin.ignore();
+        cin.read(infix, size);
+
+        posfix(infix, prefix, size);
+        cout << endl;
+
+        
+        for(int i = 0; i < size; i++)
+            prefix[i] = 0;
+        delete[] prefix;
+
+        for(int i = 0; i < size; i++)
+            prefix[i] = 0;
+        delete[] infix;
     }
 }
 
-void branch::put(char let, bool over)
+void posfix(char *infix, char *prefix, int size)
 {
-    branch *newest = new branch;
-    newest->let = let;
-    newest->over = newest->under = NULL;
+    if(size == 0) return;
+
+    char root = *prefix;
+
+    // Count how many elements there are in left of the root
+    int untill_root = 0;
+    while(infix[untill_root] != root)
+        untill_root++;
     
-    if(over) this->over = newest;
-    else this->over = newest;
+    posfix(infix, prefix+1, untill_root); //Left printing
+    posfix(infix + untill_root+1, prefix + untill_root+1, size - untill_root - 1); // Right printing
+    cout << root;
 }
